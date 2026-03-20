@@ -33,7 +33,7 @@ Dự án này cung cấp các module tùy chỉnh cho hệ thống **Odoo 17**, 
 ### Clone repository
 
 ```bash
-git clone https://github.com/Hoang-Phuck4/odoo_project.git
+git clone https://github.com/Hoang-Phuck4/odoo.git
 
 ---
 
