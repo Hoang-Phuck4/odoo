@@ -30,19 +30,10 @@ Dự án này cung cấp các module tùy chỉnh cho hệ thống **Odoo 17**, 
 
 ## 📥 Cài đặt
 
-### 1. Clone repository
+### Clone repository
 
 ```bash
 git clone https://github.com/Hoang-Phuck4/odoo_project.git
-```
-
-### 2. Cấu hình Odoo
-
-Thêm đường dẫn repo vào `addons_path` trong file `odoo.conf`:
-
-```ini
-addons_path = /path/to/odoo/addons, /path/to/odoo_project
-```
 
 ---
 
