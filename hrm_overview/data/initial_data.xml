@@ -1,0 +1,67 @@
+<odoo>
+    <!-- Bản ghi tổng quan trường -->
+    <record id="ut_hcm_company_overview_main" model="edu.company.overview">
+        <field name="name">Trường Đại học Giao thông Vận tải TP.HCM</field>
+        <field name="business_field">Giáo dục</field>
+    </record>
+
+    <!-- Danh sách cơ sở -->
+    <record id="facility_binh_thanh" model="edu.company.facility">
+        <field name="name">Cơ sở Bình Thạnh</field>
+        <field name="address">Số 2 Võ Oanh, Phường 25, Quận Bình Thạnh, TP.HCM</field>
+        <field name="company_overview_id" ref="ut_hcm_company_overview_main"/>
+    </record>
+
+    <record id="facility_thu_duc" model="edu.company.facility">
+        <field name="name">Cơ sở Thủ Đức</field>
+        <field name="address">Số 10, Đường số 12, KP3, P. An Khánh, TP. Thủ Đức, TP.HCM</field>
+        <field name="company_overview_id" ref="ut_hcm_company_overview_main"/>
+    </record>
+
+    <record id="facility_quan_12" model="edu.company.facility">
+        <field name="name">Cơ sở Quận 12</field>
+        <field name="address">Số 70, Đường Tô Ký, P. Tân Chánh Hiệp, Q.12, TP.HCM</field>
+        <field name="company_overview_id" ref="ut_hcm_company_overview_main"/>
+    </record>
+
+    <record id="facility_dong_nai" model="edu.company.facility">
+        <field name="name">Cơ sở Đồng Nai</field>
+        <field name="address">Xã Long Khánh, TP. Đồng Nai</field>
+        <field name="company_overview_id" ref="ut_hcm_company_overview_main"/>
+    </record>
+
+    <record id="facility_baria_vungtau" model="edu.company.facility">
+        <field name="name">Cơ sở Bà Rịa - Vũng Tàu</field>
+        <field name="address">TP Bà Rịa, tỉnh Vũng Tàu</field>
+        <field name="company_overview_id" ref="ut_hcm_company_overview_main"/>
+    </record>
+
+    <!-- Cấp phân quyền -->
+    <record id="permission_level_1" model="edu.permission.level">
+        <field name="name">Ban lãnh đạo</field>
+        <field name="code">level_1</field>
+        <field name="description">Quản lý toàn bộ hoạt động trường</field>
+        <field name="company_overview_id" ref="ut_hcm_company_overview_main"/>
+    </record>
+
+    <record id="permission_level_2" model="edu.permission.level">
+        <field name="name">Trưởng phòng/Giám đốc trung tâm</field>
+        <field name="code">level_2</field>
+        <field name="description">Quản lý nhân sự, giảng viên và các hoạt động dưới quyền</field>
+        <field name="company_overview_id" ref="ut_hcm_company_overview_main"/>
+    </record>
+
+    <record id="permission_level_3" model="edu.permission.level">
+        <field name="name">Phó phòng/Phó giám đốc</field>
+        <field name="code">level_3</field>
+        <field name="description">Hỗ trợ trưởng phòng, thực hiện các công việc cần duyệt từ cấp trên</field>
+        <field name="company_overview_id" ref="ut_hcm_company_overview_main"/>
+    </record>
+
+    <record id="permission_level_4" model="edu.permission.level">
+        <field name="name">Nhân viên/Giảng viên</field>
+        <field name="code">level_4</field>
+        <field name="description">Chỉ xem và quản lý thông tin cá nhân</field>
+        <field name="company_overview_id" ref="ut_hcm_company_overview_main"/>
+    </record>
+</odoo>

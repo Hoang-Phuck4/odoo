@@ -1,0 +1,85 @@
+<odoo>
+    <data noupdate="0">
+
+        <!-- Kanban view cho Phòng ban -->
+        <record id="view_uth_department_kanban" model="ir.ui.view">
+            <field name="name">uth.department.kanban</field>
+            <field name="model">hr.department</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_example">
+                    <field name="name"/>
+                    <field name="manager_id"/>
+                    <field name="employee_count"/> <!-- Sử dụng employee_count -->
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                    <span>Quản lý: <field name="manager_id"/></span>
+                                </div>
+                                <div class="mt-2">
+                                    <button type="object"
+                                            name="action_view_employees"
+                                            class="btn btn-primary btn-sm">
+                                        <field name="employee_count" widget="statinfo"/>
+                                    </button>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Form view cho Phòng ban -->
+        <record id="view_uth_department_form" model="ir.ui.view">
+            <field name="name">uth.department.form</field>
+            <field name="model">hr.department</field>
+            <field name="arch" type="xml">
+                <form string="Phòng ban">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="manager_id"/>
+                            <field name="deputy_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action Kanban Phòng ban -->
+        <record id="action_uth_department_kanban" model="ir.actions.act_window">
+            <field name="name">Phòng ban</field>
+            <field name="res_model">hr.department</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="view_id" ref="view_uth_department_kanban"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Tạo phòng ban mới</p>
+            </field>
+        </record>
+
+        <!-- Menu Phòng ban -->
+        <record id="uth_hr_menu_department" model="ir.ui.menu">
+            <field name="name">Phòng ban</field>
+            <field name="parent_id" ref="hr.menu_hr_root"/>
+            <field name="action" ref="action_uth_department_kanban"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Ẩn department trong employee form nếu muốn -->
+        <record id="view_hr_employee_form_hide_department" model="ir.ui.view">
+            <field name="name">hr.employee.form.hide_department</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <field name="department_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

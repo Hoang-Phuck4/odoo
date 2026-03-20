@@ -1,0 +1,23 @@
+<odoo>
+    <data noupdate="1">
+        <record id="ut_hcm_group_board" model="res.groups">
+            <field name="name">Ban Lãnh Đạo</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+        </record>
+
+        <record id="ut_hcm_group_manager" model="res.groups">
+            <field name="name">Trưởng phòng/Giám đốc trung tâm</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+        </record>
+
+        <record id="ut_hcm_group_assistant_manager" model="res.groups">
+            <field name="name">Phó phòng/Phó giám đốc</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+        </record>
+
+        <record id="ut_hcm_group_employee" model="res.groups">
+            <field name="name">Nhân viên/Giảng viên</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+        </record>
+    </data>
+</odoo>

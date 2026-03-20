@@ -1,0 +1,86 @@
+<odoo>
+    <!-- ======================= -->
+    <!-- Attendance Custom Model -->
+    <!-- ======================= -->
+
+    <!-- Nhân viên: chỉ thấy bản ghi của chính mình -->
+    <record id="attendance_rule_employee" model="ir.rule">
+        <field name="name">Attendance - Employee Own Records</field>
+        <field name="model_id" ref="model_employee_attendance_custom"/>
+        <field name="groups" eval="[(4, ref('hrm_overview.ut_hcm_group_employee'))]"/>
+        <field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
+    </record>
+
+    <!-- Trưởng phòng + Phó phòng: thấy bản ghi của phòng mình -->
+    <record id="attendance_rule_manager" model="ir.rule">
+        <field name="name">Attendance - Manager Department Records</field>
+        <field name="model_id" ref="model_employee_attendance_custom"/>
+        <field name="groups" eval="[(4, ref('hrm_overview.ut_hcm_group_manager')),
+                                    (4, ref('hrm_overview.ut_hcm_group_assistant_manager'))]"/>
+        <field name="domain_force">
+            ['|',
+                ('employee_id.user_id', '=', user.id),
+                ('employee_id.department_id', 'in', user.employee_ids.department_id.ids)
+            ]
+        </field>
+    </record>
+
+    <!-- Giám đốc: thấy tất cả -->
+    <record id="attendance_rule_board" model="ir.rule">
+        <field name="name">Attendance - Board See All</field>
+        <field name="model_id" ref="model_employee_attendance_custom"/>
+        <field name="groups" eval="[(4, ref('hrm_overview.ut_hcm_group_board'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+    </record>
+
+    <!-- ======================= -->
+    <!-- Attendance Report Model -->
+    <!-- ======================= -->
+
+    <!-- Nhân viên: chỉ thấy báo cáo của chính mình -->
+    <record id="attendance_report_rule_employee" model="ir.rule">
+        <field name="name">Attendance Report - Employee Own Records</field>
+        <field name="model_id" ref="model_employee_attendance_report"/>
+        <field name="groups" eval="[(4, ref('hrm_overview.ut_hcm_group_employee'))]"/>
+        <field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
+    </record>
+
+    <!-- Trưởng phòng + Phó phòng: thấy báo cáo phòng mình -->
+    <record id="attendance_report_rule_manager" model="ir.rule">
+        <field name="name">Attendance Report - Manager Department Records</field>
+        <field name="model_id" ref="model_employee_attendance_report"/>
+        <field name="groups" eval="[(4, ref('hrm_overview.ut_hcm_group_manager')),
+                                    (4, ref('hrm_overview.ut_hcm_group_assistant_manager'))]"/>
+        <field name="domain_force">
+            ['|',
+                ('employee_id.user_id', '=', user.id),
+                ('employee_id.department_id', 'in', user.employee_ids.department_id.ids)
+            ]
+        </field>
+    </record>
+
+    <!-- Giám đốc: thấy tất cả báo cáo -->
+    <record id="attendance_report_rule_board" model="ir.rule">
+        <field name="name">Attendance Report - Board See All</field>
+        <field name="model_id" ref="model_employee_attendance_report"/>
+        <field name="groups" eval="[(4, ref('hrm_overview.ut_hcm_group_board'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+    </record>
+
+    <!-- Admin: tất cả quyền trên Attendance Custom -->
+<record id="attendance_rule_admin" model="ir.rule">
+    <field name="name">Attendance - Admin See All</field>
+    <field name="model_id" ref="model_employee_attendance_custom"/>
+    <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+    <field name="domain_force">[(1,'=',1)]</field>
+</record>
+
+<!-- Admin: tất cả quyền trên Attendance Report -->
+<record id="attendance_report_rule_admin" model="ir.rule">
+    <field name="name">Attendance Report - Admin See All</field>
+    <field name="model_id" ref="model_employee_attendance_report"/>
+    <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+    <field name="domain_force">[(1,'=',1)]</field>
+</record>
+
+</odoo>

@@ -1,0 +1,47 @@
+<odoo>
+    <!-- ================= FORM LOẠI NGHỈ PHÉP ================= -->
+    <record id="view_leave_type_form" model="ir.ui.view">
+        <field name="name">employee.leave.type.form</field>
+        <field name="model">employee.leave.type</field>
+        <field name="arch" type="xml">
+            <form string="Loại nghỉ phép">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="default_days"/>
+                        <field name="allow_advance"/>
+                        <field name="is_public_holiday"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ================= LIST LOẠI NGHỈ PHÉP ================= -->
+    <record id="view_leave_type_list" model="ir.ui.view">
+        <field name="name">employee.leave.type.list</field>
+        <field name="model">employee.leave.type</field>
+        <field name="arch" type="xml">
+            <list string="Danh sách loại nghỉ phép">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="default_days"/>
+                <field name="allow_advance"/>
+                <field name="is_public_holiday"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ================= MENU LOẠI NGHỈ PHÉP ================= -->
+    <record id="action_leave_type" model="ir.actions.act_window">
+        <field name="name">Loại nghỉ phép</field>
+        <field name="res_model">employee.leave.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo các loại nghỉ phép cho nhân viên
+            </p>
+        </field>
+    </record>
+</odoo>

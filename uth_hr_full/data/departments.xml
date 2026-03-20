@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ================= Phòng ban ================= -->
+    <record id="dept_tap_the_lanh_dao" model="hr.department">
+        <field name="name">TẬP THỂ LÃNH ĐẠO</field>
+    </record>
+    <record id="dept_phong_dao_tao" model="hr.department">
+        <field name="name">PHÒNG ĐÀO TẠO</field>
+    </record>
+    <record id="dept_trung_tam_tt_thu_vien" model="hr.department">
+        <field name="name">TRUNG TÂM THÔNG TIN - THƯ VIỆN</field>
+    </record>
+    <record id="dept_phong_to_chuc_hanh_chinh" model="hr.department">
+        <field name="name">PHÒNG TỔ CHỨC - HÀNH CHÍNH</field>
+    </record>
+    <record id="dept_phong_ke_hoach_tai_vu" model="hr.department">
+        <field name="name">PHÒNG KẾ HOẠCH - TÀI VỤ</field>
+    </record>
+    <record id="dept_trung_tam_tu_van" model="hr.department">
+        <field name="name">TRUNG TÂM TƯ VẤN - TUYỂN SINH</field>
+    </record>
+    <record id="dept_vien_chat_luong_cao" model="hr.department">
+        <field name="name">VIỆN CHẤT LƯỢNG CAO</field>
+    </record>
+    <record id="dept_vien_dao_tao_hop_tac_qte" model="hr.department">
+        <field name="name">VIỆN ĐÀO TẠO VÀ HỢP TÁC QUỐC TẾ</field>
+    </record>
+</odoo>

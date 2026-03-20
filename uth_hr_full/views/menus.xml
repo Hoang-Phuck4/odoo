@@ -1,0 +1,91 @@
+<odoo>
+    <data noupdate="0">
+
+        <!-- ==================== ACTIONS ==================== -->
+
+        <!-- Action Phòng ban -->
+        <record id="action_uth_department_kanban" model="ir.actions.act_window">
+            <field name="name">Phòng ban</field>
+            <field name="res_model">hr.department</field>
+            <field name="view_mode">kanban,form</field>
+        </record>
+
+        <!-- Action Nhân viên riêng -->
+        <record id="action_uth_employee" model="ir.actions.act_window">
+            <field name="name">Nhân viên</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_mode">kanban,form</field>
+        </record>
+
+        <!-- Action Loại nhân viên -->
+<record id="action_employee_type" model="ir.actions.act_window">
+    <field name="name">Loại nhân viên</field>
+    <field name="res_model">employee.type</field>
+    <field name="view_mode">kanban,form</field>
+</record>
+
+<!-- Action Trạng thái nhân viên -->
+<record id="action_employee_status" model="ir.actions.act_window">
+    <field name="name">Trạng thái nhân viên</field>
+    <field name="res_model">employee.status</field>
+    <field name="view_mode">kanban,form</field>
+</record>
+
+<!-- Action Học hàm / Học vị -->
+<record id="action_degree" model="ir.actions.act_window">
+    <field name="name">Học hàm / Học vị</field>
+    <field name="res_model">degree</field>
+    <field name="view_mode">kanban,form</field>
+</record>
+
+
+        <!-- ==================== MENUS ==================== -->
+
+        <!-- Menu gốc HR -->
+        <record id="uth_hr_menu_root" model="ir.ui.menu">
+            <field name="name">Nhân sự UTH</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Menu Nhân viên sử dụng action riêng -->
+        <record id="uth_hr_menu_employee" model="ir.ui.menu">
+            <field name="name">Nhân viên</field>
+            <field name="parent_id" ref="uth_hr_menu_root"/>
+            <field name="action" ref="action_uth_employee"/>
+            <field name="sequence">5</field>
+        </record>
+
+        <!-- Menu Phòng ban -->
+        <record id="uth_hr_menu_department" model="ir.ui.menu">
+            <field name="name">Phòng ban</field>
+            <field name="parent_id" ref="uth_hr_menu_root"/>
+            <field name="action" ref="action_uth_department_kanban"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Menu Loại nhân viên -->
+        <record id="uth_hr_menu_employee_type" model="ir.ui.menu">
+            <field name="name">Loại nhân viên</field>
+            <field name="parent_id" ref="uth_hr_menu_root"/>
+            <field name="action" ref="action_employee_type"/>
+            <field name="sequence">15</field>
+        </record>
+
+        <!-- Menu Trạng thái nhân viên -->
+        <record id="uth_hr_menu_employee_status" model="ir.ui.menu">
+            <field name="name">Trạng thái nhân viên</field>
+            <field name="parent_id" ref="uth_hr_menu_root"/>
+            <field name="action" ref="action_employee_status"/>
+            <field name="sequence">16</field>
+        </record>
+
+        <!-- Menu Học hàm / Học vị -->
+        <record id="uth_hr_menu_degree" model="ir.ui.menu">
+            <field name="name">Học hàm / Học vị</field>
+            <field name="parent_id" ref="uth_hr_menu_root"/>
+            <field name="action" ref="action_degree"/>
+            <field name="sequence">17</field>
+        </record>
+
+    </data>
+</odoo>

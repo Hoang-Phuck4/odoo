@@ -1,0 +1,95 @@
+<odoo>
+    <data>
+
+        <!-- Menu root -->
+        <menuitem id="menu_ut_hcm_root"
+                  name="UTH HCMC"
+                  groups="base.group_user"
+                  sequence="1"/>
+
+        <!-- Action tổng quan trường -->
+        <record id="action_company_overview" model="ir.actions.act_window">
+            <field name="name">Tổng quan trường</field>
+            <field name="res_model">edu.company.overview</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Menu tổng quan -->
+        <menuitem id="menu_company_overview"
+                  name="Tổng quan"
+                  parent="menu_ut_hcm_root"
+                  action="action_company_overview"
+                  groups="base.group_user"
+                  sequence="1"/>
+
+        <!-- Kanban view tổng quan trường -->
+        <record id="view_company_overview_kanban" model="ir.ui.view">
+            <field name="name">edu.company.overview.kanban</field>
+            <field name="model">edu.company.overview</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="business_field"/>
+                    <templates>
+                        <t t-name="kanban-box" t-key="record.id">
+                            <div class="o_kanban_record">
+                                <strong><field name="name"/></strong>
+                                <div><field name="business_field"/></div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Form view tổng quan trường -->
+        <record id="view_company_overview_form" model="ir.ui.view">
+            <field name="name">edu.company.overview.form</field>
+            <field name="model">edu.company.overview</field>
+            <field name="arch" type="xml">
+                <form string="Tổng quan trường">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="business_field"/>
+                        </group>
+                        <notebook>
+                            <page string="Cơ sở">
+                                <field name="facility_ids" widget="kanban">
+                                    <kanban>
+                                        <templates>
+                                            <t t-name="kanban-box" t-key="record.id">
+                                                <div class="o_kanban_record">
+                                                    <strong><field name="name"/></strong>
+                                                    <div><field name="address"/></div>
+                                                    <div>Quản lý: <field name="manager_id"/></div>
+                                                </div>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                </field>
+                            </page>
+                            <page string="Cấp phân quyền">
+                                <field name="permission_level_ids" widget="kanban">
+                                    <kanban>
+                                        <templates>
+                                            <t t-name="kanban-box" t-key="record.id">
+                                                <div class="o_kanban_record">
+                                                    <strong><field name="name"/></strong>
+                                                    <div>Mã: <field name="code"/></div>
+                                                    <div><field name="description"/></div>
+                                                </div>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

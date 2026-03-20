@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ================= Loại nhân viên ================= -->
+    <record id="type_thinh_giang" model="employee.type">
+        <field name="name">Thỉnh giảng</field>
+        <field name="code">TG</field>
+    </record>
+    <record id="type_phong_ban" model="employee.type">
+        <field name="name">Phòng ban</field>
+        <field name="code">PB</field>
+    </record>
+    <record id="type_giang_vien" model="employee.type">
+        <field name="name">Giảng viên</field>
+        <field name="code">GV</field>
+    </record>
+
+    <!-- ================= Học hàm / học vị ================= -->
+    <record id="degree_giao_su" model="degree">
+        <field name="name">Giáo sư</field>
+    </record>
+    <record id="degree_pho_giao_su" model="degree">
+        <field name="name">Phó Giáo sư</field>
+    </record>
+    <record id="degree_tien_si" model="degree">
+        <field name="name">Tiến sĩ</field>
+    </record>
+    <record id="degree_thac_si" model="degree">
+        <field name="name">Thạc sĩ</field>
+    </record>
+    <record id="degree_cu_nhan" model="degree">
+        <field name="name">Cử nhân</field>
+    </record>
+
+    <!-- ================= Trạng thái nhân viên ================= -->
+    <record id="status_dang_lam_viec" model="employee.status">
+        <field name="name">Đang làm việc</field>
+        <field name="code">1</field>
+    </record>
+    <record id="status_da_chuyen_di" model="employee.status">
+        <field name="name">Đã chuyển đi</field>
+        <field name="code">2</field>
+    </record>
+    <record id="status_da_dieu_dong" model="employee.status">
+        <field name="name">Đã điều động</field>
+        <field name="code">3</field>
+    </record>
+    <record id="status_cho_nghi_huu" model="employee.status">
+        <field name="name">Chờ nghỉ hưu</field>
+        <field name="code">4</field>
+    </record>
+    <record id="status_da_nghi_huu" model="employee.status">
+        <field name="name">Đã nghỉ hưu</field>
+        <field name="code">5</field>
+    </record>
+</odoo>

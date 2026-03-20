@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_company_overview,access_company_overview,model_edu_company_overview,base.group_user,1,1,1,1
+access_company_facility,access_company_facility,model_edu_company_facility,base.group_user,1,1,1,1
+access_permission_level,access_permission_level,model_edu_permission_level,base.group_user,1,1,1,1

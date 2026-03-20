@@ -1,0 +1,40 @@
+<odoo>
+    <!-- =================== CALENDARS SẠCH =================== -->
+    <record id="calendar_standard" model="resource.calendar">
+        <field name="name">Lịch chuẩn 7:30–16:30 (T2–T6)</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="attendance_ids" eval="[
+            (5, 0, 0),
+            (0, 0, {'name': 'Ca Thứ 2', 'dayofweek': '0', 'hour_from': 7.5, 'hour_to': 16.5}),
+            (0, 0, {'name': 'Ca Thứ 3', 'dayofweek': '1', 'hour_from': 7.5, 'hour_to': 16.5}),
+            (0, 0, {'name': 'Ca Thứ 4', 'dayofweek': '2', 'hour_from': 7.5, 'hour_to': 16.5}),
+            (0, 0, {'name': 'Ca Thứ 5', 'dayofweek': '3', 'hour_from': 7.5, 'hour_to': 16.5}),
+            (0, 0, {'name': 'Ca Thứ 6', 'dayofweek': '4', 'hour_from': 7.5, 'hour_to': 16.5}),
+        ]"/>
+    </record>
+
+    <record id="calendar_library" model="resource.calendar">
+        <field name="name">Lịch Thư viện</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="attendance_ids" eval="[
+            (5, 0, 0),
+            (0, 0, {'name': 'Ca Thư viện Thứ 2', 'dayofweek': '0', 'hour_from': 10.5, 'hour_to': 19.5}),
+            (0, 0, {'name': 'Ca Thư viện Thứ 3', 'dayofweek': '1', 'hour_from': 10.5, 'hour_to': 19.5}),
+            (0, 0, {'name': 'Ca Thư viện Thứ 4', 'dayofweek': '2', 'hour_from': 10.5, 'hour_to': 19.5}),
+            (0, 0, {'name': 'Ca Thư viện Thứ 5', 'dayofweek': '3', 'hour_from': 10.5, 'hour_to': 19.5}),
+            (0, 0, {'name': 'Ca Thư viện Thứ 6', 'dayofweek': '4', 'hour_from': 10.5, 'hour_to': 19.5}),
+            (0, 0, {'name': 'Ca Thư viện Thứ 7', 'dayofweek': '5', 'hour_from': 7.5, 'hour_to': 16.5}),
+        ]"/>
+    </record>
+
+    <record id="calendar_guard" model="resource.calendar">
+        <field name="name">Lịch Bảo vệ 24h</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="attendance_ids" eval="[
+            (5, 0, 0),
+            (0, 0, {'name': 'Ca bảo vệ 24h Thứ 2', 'dayofweek': '0', 'hour_from': 0, 'hour_to': 24}),
+            (0, 0, {'name': 'Ca bảo vệ 24h Thứ 4', 'dayofweek': '2', 'hour_from': 0, 'hour_to': 24}),
+            (0, 0, {'name': 'Ca bảo vệ 24h Thứ 6', 'dayofweek': '4', 'hour_from': 0, 'hour_to': 24}),
+        ]"/>
+    </record>
+</odoo>

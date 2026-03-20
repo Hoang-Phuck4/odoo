@@ -1,0 +1,60 @@
+<odoo>
+    <data noupdate="0">
+
+        <!-- Kanban view cho Trạng thái nhân viên -->
+        <record id="view_employee_status_kanban" model="ir.ui.view">
+            <field name="name">employee.status.kanban</field>
+            <field name="model">employee.status</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_example">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <strong><field name="name"/></strong>
+                                <div>Mã: <field name="code"/></div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Form view cho Trạng thái nhân viên -->
+        <record id="view_employee_status_form" model="ir.ui.view">
+            <field name="name">employee.status.form</field>
+            <field name="model">employee.status</field>
+            <field name="arch" type="xml">
+                <form string="Trạng thái nhân viên">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action window cho Trạng thái nhân viên -->
+        <record id="action_employee_status" model="ir.actions.act_window">
+            <field name="name">Trạng thái nhân viên</field>
+            <field name="res_model">employee.status</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="view_id" ref="view_employee_status_kanban"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Tạo trạng thái nhân viên mới</p>
+            </field>
+        </record>
+
+        <!-- Menu Trạng thái nhân viên -->
+        <record id="uth_hr_menu_employee_status" model="ir.ui.menu">
+            <field name="name">Trạng thái nhân viên</field>
+            <field name="parent_id" ref="hr.menu_hr_root"/>
+            <field name="action" ref="action_employee_status"/>
+            <field name="sequence">16</field>
+        </record>
+
+    </data>
+</odoo>

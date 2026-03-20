@@ -1,0 +1,20 @@
+<odoo>
+    <record id="view_users_form_inherit_employee_code" model="ir.ui.view">
+        <field name="name">res.users.form.inherit.employee.code</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Ẩn field login gốc -->
+            <xpath expr="//field[@name='login']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <!-- Thêm mật khẩu chưa hash -->
+            <xpath expr="//field[@name='groups_id']" position="before">
+                <field name="plain_password" password="True" placeholder="Nhập mật khẩu"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_employee_leave_request_calendar" model="ir.ui.view">
+        <field name="name">employee.leave.request.calendar</field>
+        <field name="model">employee.leave.request</field>
+        <field name="arch" type="xml">
+            <calendar string="Lịch nghỉ phép"
+                      date_start="start_date"
+                      date_stop="end_date"
+                      color="status">
+                <field name="employee_id"/>
+                <field name="status"/>
+            </calendar>
+        </field>
+    </record>
+</odoo>

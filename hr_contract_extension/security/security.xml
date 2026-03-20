@@ -1,0 +1,49 @@
+<odoo>
+    <!-- Board (giám đốc) full access -->
+    <record id="rule_uth_contract_board" model="ir.rule">
+        <field name="name">Board - full access</field>
+        <field name="model_id" ref="model_uth_contract"/>
+        <field name="groups" eval="[(4, ref('hrm_overview.ut_hcm_group_board'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Manager (trưởng phòng) - chỉ xem phòng mình -->
+    <record id="rule_uth_contract_manager" model="ir.rule">
+        <field name="name">Manager - department only</field>
+        <field name="model_id" ref="model_uth_contract"/>
+        <field name="groups" eval="[(4, ref('hrm_overview.ut_hcm_group_manager'))]"/>
+        <field name="domain_force">[('employee_id.department_id','=',user.employee_id.department_id.id)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Assistant (phó phòng) - chỉ xem phòng mình -->
+    <record id="rule_uth_contract_assistant" model="ir.rule">
+        <field name="name">Assistant - department only</field>
+        <field name="model_id" ref="model_uth_contract"/>
+        <field name="groups" eval="[(4, ref('hrm_overview.ut_hcm_group_assistant_manager'))]"/>
+        <field name="domain_force">[('employee_id.department_id','=',user.employee_id.department_id.id)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Employee (nhân viên) - chỉ xem hợp đồng của mình -->
+    <record id="rule_uth_contract_employee" model="ir.rule">
+        <field name="name">Employee - own only</field>
+        <field name="model_id" ref="model_uth_contract"/>
+        <field name="groups" eval="[(4, ref('hrm_overview.ut_hcm_group_employee'))]"/>
+        <field name="domain_force">[('employee_id','=',user.employee_id.id)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+</odoo>

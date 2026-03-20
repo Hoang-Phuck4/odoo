@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ================== SEARCH ================== -->
+    <record id="view_employee_payroll_search" model="ir.ui.view">
+        <field name="name">employee.payroll.search</field>
+        <field name="model">employee.payroll</field>
+        <field name="arch" type="xml">
+            <search string="Tìm payslip">
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <filter name="this_month" string="Tháng này"
+                        domain="[('month','=', str((context_today()).month)),('year','=', str((context_today()).year))]"/>
+                <separator/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="confirmed" string="Confirmed" domain="[('state','=','confirmed')]"/>
+                <filter name="paid" string="Paid" domain="[('state','=','paid')]"/>
+                <group expand="0" string="Thời gian">
+                    <field name="month"/>
+                    <field name="year"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ================== LIST ================== -->
+    <record id="view_employee_payroll_list" model="ir.ui.view">
+        <field name="name">employee.payroll.list</field>
+        <field name="model">employee.payroll</field>
+        <field name="arch" type="xml">
+            <list string="Bảng lương nhân sự">
+                <field name="employee_id"/>
+                <field name="staff_code"/>
+                <field name="department_id"/>
+                <field name="month"/>
+                <field name="year"/>
+                <field name="contract_id"/>
+                <field name="basic_salary" widget="monetary"/>
+                <field name="contract_salary" widget="monetary"/>
+                <field name="standard_work_days"/>
+                <field name="working_days"/>
+                <field name="paid_leave_days"/>
+                <field name="attendance_percent"/>
+                <field name="total_allowance" widget="monetary"/>
+                <field name="attendance_allowance" widget="monetary"/>
+                <field name="performance_allowance" widget="monetary"/>
+                <field name="birthday_gift" widget="monetary"/>
+                <field name="other_income_manual" widget="monetary"/>
+                <field name="total_income" widget="monetary"/>
+                <field name="overtime_hours_total"/>
+                <field name="overtime_amount" widget="monetary"/>
+                <field name="overtime_amount_taxable" widget="monetary"/>
+                <field name="overtime_amount_nontax" widget="monetary"/>
+                <field name="salary_for_si" widget="monetary"/>
+                <field name="employee_si" widget="monetary"/>
+                <field name="company_si" widget="monetary"/>
+                <field name="advance_salary" widget="monetary"/>
+                <field name="collect_arrears" widget="monetary"/>
+                <field name="tax_type"/>
+                <field name="personal_deduction" widget="monetary"/>
+                <field name="num_dependents"/>
+                <field name="dependent_deduction" widget="monetary"/>
+                <field name="taxable_income" widget="monetary"/>
+                <field name="net_taxable_income" widget="monetary"/>
+                <field name="pit_amount" widget="monetary"/>
+                <field name="union_fee" widget="monetary"/>
+                <field name="net_pay" widget="monetary"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ================== FORM ================== -->
+    <record id="view_employee_payroll_form" model="ir.ui.view">
+        <field name="name">employee.payroll.form</field>
+        <field name="model">employee.payroll</field>
+        <field name="arch" type="xml">
+            <form string="Payslip">
+                <header>
+                    <button name="action_confirm"
+                            string="Confirm"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+
+                    <button name="action_set_paid"
+                            string="Set Paid"
+                            type="object"
+                            class="btn-success"
+                            invisible="state != 'confirmed'"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,paid"/>
+                </header>
+
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="staff_code" readonly="1"/>
+                            <field name="department_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="month"/>
+                            <field name="year"/>
+                            <field name="period_from" readonly="1"/>
+                            <field name="period_to" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <!-- Tổng quan -->
+                        <page string="Tổng quan">
+                            <group>
+                                <field name="contract_id"/>
+                                <field name="basic_salary" widget="monetary"/>
+                                <field name="standard_work_days"/>
+                                <field name="working_days"/>
+                                <field name="paid_leave_days"/>
+                                <field name="attendance_percent"/>
+                            </group>
+                        </page>
+
+                        <!-- Thu nhập & Phụ cấp -->
+                        <page string="Thu nhập &amp; Phụ cấp">
+                            <group>
+                                <group>
+                                   <field name="basic_salary_in_period" widget="monetary" readonly="1"/>
+                                    <field name="accommodation" widget="monetary"/>
+                                    <field name="petro" widget="monetary"/>
+                                    <field name="transportation" widget="monetary"/>
+                                    <field name="telephone" widget="monetary"/>
+                                    <field name="manual_allowance" widget="monetary"/>
+                                    <field name="total_allowance" widget="monetary" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="attendance_allowance" widget="monetary" readonly="1"/>
+                                    <field name="attendance_allowance_fixed" widget="monetary"/>
+                                    <field name="performance_allowance" widget="monetary" readonly="1"/>
+                                    <field name="performance_allowance_fixed" widget="monetary"/>
+                                    <field name="other_income_manual" widget="monetary"/>
+                                    <field name="birthday_gift" widget="monetary" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="total_income" widget="monetary" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- OT -->
+                        <page string="OT">
+                            <group>
+                                <field name="overtime_hours_15"/>
+                                <field name="overtime_hours_20"/>
+                                <field name="overtime_hours_21"/>
+                                <field name="overtime_hours_27"/>
+                                <field name="overtime_hours_30"/>
+                                <field name="overtime_hours_39"/>
+                                <field name="overtime_hours_total" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="overtime_amount" widget="monetary" readonly="1"/>
+                                <field name="overtime_amount_nontax" widget="monetary" readonly="1"/>
+                                <field name="overtime_amount_taxable" widget="monetary" readonly="1"/>
+                            </group>
+                        </page>
+
+                        <!-- BHXH & Khấu trừ -->
+                        <page string="BHXH &amp; Khấu trừ">
+                            <group>
+                                <field name="salary_for_si" widget="monetary" readonly="1"/>
+                                <field name="employee_si" widget="monetary" readonly="1"/>
+                                <field name="company_si" widget="monetary" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="advance_salary" widget="monetary"/>
+                                <field name="collect_arrears" widget="monetary"/>
+                            </group>
+                        </page>
+
+                        <!-- Thuế -->
+                        <page string="Thuế TNCN">
+                            <group>
+                                <field name="tax_type"/>
+                                <field name="personal_deduction" widget="monetary"/>
+                                <field name="num_dependents"/>
+                                <field name="dependent_deduction" widget="monetary" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="taxable_income" widget="monetary" readonly="1"/>
+                                <field name="net_taxable_income" widget="monetary" readonly="1"/>
+                                <field name="pit_amount" widget="monetary" readonly="1"/>
+                                <field name="union_fee" widget="monetary" readonly="1"/>
+                            </group>
+                        </page>
+
+                        <!-- Kết quả -->
+                        <page string="Kết quả">
+                            <group>
+                                <field name="total_income" widget="monetary" readonly="1"/>
+                                <field name="employee_si" widget="monetary" readonly="1"/>
+                                <field name="pit_amount" widget="monetary" readonly="1"/>
+                                <field name="union_fee" widget="monetary" readonly="1"/>
+                                <field name="advance_salary" widget="monetary"/>
+                                <field name="collect_arrears" widget="monetary"/>
+                                <field name="net_pay" widget="monetary" readonly="1"/>
+                            </group>
+                        </page>
+
+                        <!-- Notes -->
+                        <page string="Ghi chú">
+                            <field name="note" colspan="4"/>
+                        </page>
+                    </notebook>
+                </sheet>
+
+        
+            </form>
+        </field>
+    </record>
+
+    <!-- ================== WIZARD ================== -->
+    <record id="view_payroll_generate_wizard" model="ir.ui.view">
+        <field name="name">payroll.generate.wizard.form</field>
+        <field name="model">payroll.generate.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Sinh bảng lương hàng loạt">
+                <group>
+                    <field name="month"/>
+                    <field name="year"/>
+                    <field name="auto_confirm"/>
+                    <field name="include_without_contract"/>
+                </group>
+                <footer>
+                    <button string="Sinh" type="object" name="action_generate" class="btn-primary"/>
+                    <button string="Đóng" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- ================== ACTIONS ================== -->
+    <record id="action_employee_payroll" model="ir.actions.act_window">
+        <field name="name">Bảng lương</field>
+        <field name="res_model">employee.payroll</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_employee_payroll_list"/>
+    </record>
+
+    <record id="action_payroll_generate_wizard" model="ir.actions.act_window">
+        <field name="name">Sinh bảng lương</field>
+        <field name="res_model">payroll.generate.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_payroll_generate_wizard"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- ================== MENU ================== -->
+    <menuitem id="menu_payroll_root" name="Payroll" sequence="50"/>
+    <menuitem id="menu_payroll" name="Bảng lương"
+              parent="menu_payroll_root" sequence="1"
+              action="action_employee_payroll"/>
+    <menuitem id="menu_payroll_generate" name="Sinh bảng lương"
+              parent="menu_payroll_root" sequence="2"
+              action="action_payroll_generate_wizard"/>
+</odoo>

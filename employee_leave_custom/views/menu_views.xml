@@ -1,0 +1,60 @@
+<odoo>
+    <!-- ================= MENU GỐC ================= -->
+    <menuitem id="menu_leave_root"
+              name="Nghỉ phép"
+              sequence="10"
+              groups="base.group_user,base.group_system"/>
+
+    <!-- ================= MENU CON ================= -->
+    <menuitem id="menu_leave_dashboard"
+              name="Dashboard"
+              parent="menu_leave_root"
+              sequence="1"/>
+
+    <menuitem id="menu_leave_records"
+              name="Đơn nghỉ phép"
+              parent="menu_leave_root"
+              sequence="2"/>
+
+    <menuitem id="menu_leave_type_root"
+              name="Loại nghỉ phép"
+              parent="menu_leave_root"
+              sequence="3"/>
+
+    <!-- ================= ACTION NGHỈ PHÉP ================= -->
+    <record id="action_employee_leave_request" model="ir.actions.act_window">
+        <field name="name">Đơn nghỉ phép / Giải trình</field>
+        <field name="res_model">employee.leave.request</field>
+        <field name="view_mode">list,form,kanban</field>
+    </record>
+
+    <menuitem id="menu_employee_leave_request"
+              name="Danh sách đơn nghỉ phép"
+              parent="menu_leave_records"
+              action="action_employee_leave_request"/>
+
+    <!-- ================= ACTION DASHBOARD ================= -->
+    <record id="action_leave_calendar" model="ir.actions.act_window">
+        <field name="name">Lịch nghỉ phép</field>
+        <field name="res_model">employee.leave.request</field>
+        <field name="view_mode">calendar</field>
+        <field name="context">{'default_employee_id': uid}</field>
+    </record>
+
+    <menuitem id="menu_leave_calendar_view"
+              name="Lịch nghỉ phép"
+              parent="menu_leave_dashboard"
+              action="action_leave_calendar"/>
+
+    <!-- ================= ACTION LOẠI NGHỈ PHÉP ================= -->
+    <record id="action_leave_type" model="ir.actions.act_window">
+        <field name="name">Loại nghỉ phép</field>
+        <field name="res_model">employee.leave.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_leave_type"
+              name="Danh sách loại nghỉ phép"
+              parent="menu_leave_type_root"
+              action="action_leave_type"/>
+</odoo>

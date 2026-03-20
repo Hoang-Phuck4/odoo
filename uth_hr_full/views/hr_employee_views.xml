@@ -1,0 +1,83 @@
+<odoo>
+    <data>
+        <!-- Kế thừa form view HR Employee -->
+        <record id="view_hr_employee_form_uth" model="ir.ui.view">
+            <field name="name">hr.employee.form.uth</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+
+                <!-- Chèn contract_type ngay sau department_id -->
+                <xpath expr="//field[@name='department_id']" position="after">
+                    <field name="contract_type"/>
+                </xpath>
+
+                <!-- Chèn job_title ngay sau job_id -->
+                <xpath expr="//field[@name='job_id']" position="after">
+                    <field name="job_title"/>
+                </xpath>
+
+                <!-- Thêm các tab notebook vào notebook hiện có -->
+                <xpath expr="//notebook" position="inside">
+                    <page string="Thông tin cá nhân">
+                        <group>
+                            <field name="dob"/>
+                            <field name="gender"/>
+                            <field name="identity_id"/>
+                            <field name="identity_place"/>
+                            <field name="identity_date"/>
+                            <field name="identity_expiry"/>
+                            <field name="nationality"/>
+                            <field name="ethnicity"/>
+                            <field name="religion"/>
+                            <field name="work_email"/>
+                            <field name="address"/>
+                            <!-- Loại bỏ department_id trùng -->
+                        </group>
+                    </page>
+
+                    <page string="Thông tin hợp đồng">
+                        <group>
+                            <field name="current_contract"/>
+                            <field name="major"/>
+                            <field name="status_id"/>
+                        </group>
+                    </page>
+
+                    <page string="Ngân hàng">
+                        <group>
+                            <field name="bank_name"/>
+                            <field name="bank_account"/>
+                            <field name="bank_branch"/>
+                            <field name="beneficiary"/>
+                            <field name="tax_code"/>
+                        </group>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- Kanban view cho HR Employee -->
+        <record id="view_hr_employee_kanban_uth" model="ir.ui.view">
+            <field name="name">hr.employee.kanban.uth</field>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_small_column">
+                    <field name="name"/>
+                    <field name="job_title"/>
+                    <field name="department_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <strong t-if="record.name.value"><field name="name"/></strong>
+                                <div t-if="record.job_title.value"><field name="job_title"/></div>
+                                <div t-if="record.department_id.value"><field name="department_id" widget="many2one"/></div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+    </data>
+</odoo>

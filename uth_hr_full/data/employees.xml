@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ================= Nhân viên ================= -->
+    <record id="employee_03001001" model="hr.employee">
+        <field name="name">Nguyễn Xuân Phương</field>
+        <field name="work_email">phuong.nguyenxuan98@ut.edu.vn</field>
+        <field name="work_phone">0912345678</field>
+        <field name="dob">1990-03-05</field>
+        <field name="identity_id">001032345678</field>
+        <field name="contract_type" ref="type_phong_ban"/>
+        <field name="job_title">Hiệu trưởng</field>
+        <field name="department_id" ref="dept_tap_the_lanh_dao"/>
+        <field name="degree_id" ref="degree_pho_giao_su"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03001002" model="hr.employee">
+        <field name="name">Lê Văn Vang</field>
+        <field name="work_email">vang.levan94@ut.edu.vn</field>
+        <field name="work_phone">0987654321</field>
+        <field name="dob">1990-07-17</field>
+        <field name="identity_id">079202345678</field>
+        <field name="contract_type" ref="type_phong_ban"/>
+        <field name="job_title">Phó hiệu trưởng</field>
+        <field name="department_id" ref="dept_tap_the_lanh_dao"/>
+        <field name="degree_id" ref="degree_tien_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03001003" model="hr.employee">
+        <field name="name">Đặng Nhân Cách</field>
+        <field name="work_email">cach.dangnhan95@ut.edu.vn</field>
+        <field name="work_phone">0934567890</field>
+        <field name="dob">1990-11-29</field>
+        <field name="identity_id">048012345679</field>
+        <field name="contract_type" ref="type_phong_ban"/>
+        <field name="job_title">Trưởng phòng</field>
+        <field name="department_id" ref="dept_phong_dao_tao"/>
+        <field name="degree_id" ref="degree_tien_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03001004" model="hr.employee">
+        <field name="name">Đoàn Anh Tuấn</field>
+        <field name="work_email">tuan.doanan97@ut.edu.vn</field>
+        <field name="work_phone">0909876543</field>
+        <field name="dob">1991-01-14</field>
+        <field name="identity_id">031212345680</field>
+        <field name="contract_type" ref="type_phong_ban"/>
+        <field name="job_title">Trưởng phòng</field>
+        <field name="department_id" ref="dept_phong_to_chuc_hanh_chinh"/>
+        <field name="degree_id" ref="degree_thac_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03001234" model="hr.employee">
+        <field name="name">Bùi Thị Minh Thùy</field>
+        <field name="work_email">thuy.buithiminh96@ut.edu.vn</field>
+        <field name="work_phone">0971122334</field>
+        <field name="dob">1991-09-23</field>
+        <field name="identity_id">083032345681</field>
+        <field name="contract_type" ref="type_phong_ban"/>
+        <field name="job_title">Phó trung tâm</field>
+        <field name="department_id" ref="dept_trung_tam_tu_van"/>
+        <field name="degree_id" ref="degree_thac_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03001235" model="hr.employee">
+        <field name="name">Bùi Thị Ninh</field>
+        <field name="work_email">ninh.buithi99@ut.edu.vn</field>
+        <field name="work_phone">0324567891</field>
+        <field name="dob">1991-12-08</field>
+        <field name="identity_id">002212345682</field>
+        <field name="contract_type" ref="type_phong_ban"/>
+        <field name="job_title">Trưởng trung tâm</field>
+        <field name="department_id" ref="dept_trung_tam_tu_van"/>
+        <field name="degree_id" ref="degree_tien_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03001236" model="hr.employee">
+        <field name="name">Bùi Thị Thanh Thảo</field>
+        <field name="work_email">thao.buithithanh92@ut.edu.vn</field>
+        <field name="work_phone">0359876542</field>
+        <field name="dob">1992-02-02</field>
+        <field name="identity_id">015012345683</field>
+        <field name="contract_type" ref="type_phong_ban"/>
+        <field name="job_title">Trưởng viện</field>
+        <field name="department_id" ref="dept_vien_dao_tao_hop_tac_qte"/>
+        <field name="degree_id" ref="degree_tien_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03001237" model="hr.employee">
+        <field name="name">Bùi Thị Thùy Duyên</field>
+        <field name="work_email">duyen.buithithuy94@ut.edu.vn</field>
+        <field name="work_phone">0381234567</field>
+        <field name="dob">1992-06-26</field>
+        <field name="identity_id">079042345684</field>
+        <field name="contract_type" ref="type_phong_ban"/>
+        <field name="job_title">Phó viện</field>
+        <field name="department_id" ref="dept_vien_chat_luong_cao"/>
+        <field name="degree_id" ref="degree_thac_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03001200" model="hr.employee">
+        <field name="name">Bùi Văn Cường</field>
+        <field name="work_email">cuong.buivan91@ut.edu.vn</field>
+        <field name="work_phone">0702345678</field>
+        <field name="dob">1992-10-11</field>
+        <field name="identity_id">001222345685</field>
+        <field name="contract_type" ref="type_phong_ban"/>
+        <field name="job_title">Phó phòng</field>
+        <field name="department_id" ref="dept_phong_to_chuc_hanh_chinh"/>
+        <field name="degree_id" ref="degree_thac_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03001220" model="hr.employee">
+        <field name="name">Nguyễn Anh Tú</field>
+        <field name="work_email">tu.nguyenanh93@ut.edu.vn</field>
+        <field name="work_phone">0798765432</field>
+        <field name="dob">1993-04-19</field>
+        <field name="identity_id">048202345686</field>
+        <field name="contract_type" ref="type_phong_ban"/>
+        <field name="job_title">Trưởng phòng</field>
+        <field name="department_id" ref="dept_phong_ke_hoach_tai_vu"/>
+        <field name="degree_id" ref="degree_tien_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03001221" model="hr.employee">
+        <field name="name">Cao Hữu Vinh</field>
+        <field name="work_email">vinh.caohuu90@ut.edu.vn</field>
+        <field name="work_phone">0834567891</field>
+        <field name="dob">1993-08-07</field>
+        <field name="identity_id">031032345687</field>
+        <field name="contract_type" ref="type_phong_ban"/>
+        <field name="job_title">Trưởng viện</field>
+        <field name="department_id" ref="dept_vien_chat_luong_cao"/>
+        <field name="degree_id" ref="degree_tien_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <!-- Các nhân viên tiếp theo -->
+    <record id="employee_03003003" model="hr.employee">
+        <field name="name">Dương Phú Cường</field>
+        <field name="work_email">cuong.duongphu95@ut.edu.vn</field>
+        <field name="work_phone">0859876543</field>
+        <field name="dob">1993-12-21</field>
+        <field name="identity_id">083012345688</field>
+        <field name="contract_type" ref="type_phong_ban"/>
+        <field name="job_title">Chuyên viên</field>
+        <field name="department_id" ref="dept_trung_tam_tt_thu_vien"/>
+        <field name="degree_id" ref="degree_cu_nhan"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03001807" model="hr.employee">
+        <field name="name">Đỗ Đặng Quốc Việt</field>
+        <field name="work_email">viet.dodangquoc98@ut.edu.vn</field>
+        <field name="work_phone">0881234569</field>
+        <field name="dob">1994-05-15</field>
+        <field name="identity_id">002202345689</field>
+        <field name="contract_type" ref="type_phong_ban"/>
+        <field name="job_title">Chuyên viên</field>
+        <field name="department_id" ref="dept_trung_tam_tt_thu_vien"/>
+        <field name="degree_id" ref="degree_cu_nhan"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03002111" model="hr.employee">
+        <field name="name">Hoàng Quang Tuấn</field>
+        <field name="work_email">tuan.hoangquang92@ut.edu.vn</field>
+        <field name="work_phone">0923456781</field>
+        <field name="dob">1994-09-30</field>
+        <field name="identity_id">015212345690</field>
+        <field name="contract_type" ref="type_phong_ban"/>
+        <field name="job_title">Chuyên viên</field>
+        <field name="department_id" ref="dept_phong_dao_tao"/>
+        <field name="degree_id" ref="degree_cu_nhan"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03005021" model="hr.employee">
+        <field name="name">Hồ Việt Dũng</field>
+        <field name="work_email">dung.hoviet94@ut.edu.vn</field>
+        <field name="work_phone">0967891234</field>
+        <field name="dob">1995-01-04</field>
+        <field name="identity_id">079032345691</field>
+        <field name="contract_type" ref="type_thinh_giang"/>
+        <field name="job_title">Giảng viên thỉnh giảng</field>
+        <field name="department_id" ref="dept_vien_chat_luong_cao"/>
+        <field name="degree_id" ref="degree_thac_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03005022" model="hr.employee">
+        <field name="name">Khúc Thủy Liên</field>
+        <field name="work_email">lien.khucthuy97@ut.edu.vn</field>
+        <field name="work_phone">0945678901</field>
+        <field name="dob">1995-07-28</field>
+        <field name="identity_id">001202345692</field>
+        <field name="contract_type" ref="type_thinh_giang"/>
+        <field name="job_title">Giảng viên thỉnh giảng</field>
+        <field name="department_id" ref="dept_vien_dao_tao_hop_tac_qte"/>
+        <field name="degree_id" ref="degree_thac_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03005023" model="hr.employee">
+        <field name="name">Lê Công Danh</field>
+        <field name="work_email">danh.lecong99@ut.edu.vn</field>
+        <field name="work_phone">0932123456</field>
+        <field name="dob">1996-11-09</field>
+        <field name="identity_id">048012345693</field>
+        <field name="contract_type" ref="type_giang_vien"/>
+        <field name="job_title">Giảng viên cơ hữu</field>
+        <field name="department_id" ref="dept_vien_chat_luong_cao"/>
+        <field name="degree_id" ref="degree_thac_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03005024" model="hr.employee">
+        <field name="name">Nguyễn Cảnh Ngọc</field>
+        <field name="work_email">ngoc.nguyencanh90@ut.edu.vn</field>
+        <field name="work_phone">0376543210</field>
+        <field name="dob">1997-03-12</field>
+        <field name="identity_id">031222345694</field>
+        <field name="contract_type" ref="type_giang_vien"/>
+        <field name="job_title">Giảng viên cơ hữu</field>
+        <field name="department_id" ref="dept_vien_dao_tao_hop_tac_qte"/>
+        <field name="degree_id" ref="degree_thac_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03005025" model="hr.employee">
+        <field name="name">Phan Quốc Bảo</field>
+        <field name="work_email">bao.phanquoc93@ut.edu.vn</field>
+        <field name="work_phone">0361239874</field>
+        <field name="dob">1998-06-25</field>
+        <field name="identity_id">083202345695</field>
+        <field name="contract_type" ref="type_giang_vien"/>
+        <field name="job_title">Giảng viên cơ hữu</field>
+        <field name="department_id" ref="dept_vien_dao_tao_hop_tac_qte"/>
+        <field name="degree_id" ref="degree_thac_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+    <record id="employee_03005055" model="hr.employee">
+        <field name="name">Trần Anh Quân</field>
+        <field name="work_email">quan.trananh91@ut.edu.vn</field>
+        <field name="work_phone">0398761234</field>
+        <field name="dob">1999-12-31</field>
+        <field name="identity_id">002032345696</field>
+        <field name="contract_type" ref="type_thinh_giang"/>
+        <field name="job_title">Giảng viên thỉnh giảng</field>
+        <field name="department_id" ref="dept_vien_dao_tao_hop_tac_qte"/>
+        <field name="degree_id" ref="degree_thac_si"/>
+        <field name="status_id" ref="status_dang_lam_viec"/>
+    </record>
+
+</odoo>

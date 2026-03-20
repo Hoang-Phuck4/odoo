@@ -1,0 +1,103 @@
+<odoo>
+    <!-- ================= KANBAN NGHỈ PHÉP ================= -->
+    <record id="view_employee_leave_request_kanban" model="ir.ui.view">
+        <field name="name">employee.leave.request.kanban</field>
+        <field name="model">employee.leave.request</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status">
+                <field name="employee_id"/>
+                <field name="leave_type_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="leave_days"/>
+                <field name="remaining_days"/>
+                <field name="status"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <strong><field name="employee_id"/></strong><br/>
+                            <span>Loại nghỉ: <field name="leave_type_id"/></span><br/>
+                            <span>Ngày còn lại: <field name="remaining_days"/></span><br/>
+                            <span><field name="start_date"/> → <field name="end_date"/></span><br/>
+                            <span>Số ngày: <field name="leave_days"/></span><br/>
+                            <span><field name="status" widget="badge"
+                                options="{'draft':'secondary',
+                                         'to_approve':'primary',
+                                         'manager_approved':'info',
+                                         'hr_approved':'warning',
+                                         'done':'success',
+                                         'refused':'danger'}"/></span>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ================= LIST NGHỈ PHÉP ================= -->
+    <record id="view_employee_leave_request_list" model="ir.ui.view">
+        <field name="name">employee.leave.request.list</field>
+        <field name="model">employee.leave.request</field>
+        <field name="arch" type="xml">
+            <list string="Danh sách đơn nghỉ phép / Giải trình">
+                <field name="employee_id"/>
+                <field name="leave_type_id"/>
+                <field name="remaining_days"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="leave_days"/>
+                <field name="status" widget="badge"
+                       options="{'draft':'secondary',
+                                 'to_approve':'primary',
+                                 'manager_approved':'info',
+                                 'hr_approved':'warning',
+                                 'done':'success',
+                                 'refused':'danger'}"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ================= FORM NGHỈ PHÉP ================= -->
+    <record id="view_employee_leave_request_form" model="ir.ui.view">
+        <field name="name">employee.leave.request.form</field>
+        <field name="model">employee.leave.request</field>
+        <field name="arch" type="xml">
+            <form string="Đơn nghỉ phép">
+                <header>
+                    <button string="Gửi duyệt" type="object" name="action_submit"
+                            class="btn-primary"
+                            invisible="status != 'draft'"/>
+                    <button string="Trưởng đơn vị duyệt" type="object" name="action_manager_approve"
+                            class="btn-info"
+                            invisible="status != 'to_approve'"/>
+                    <button string="P.TC-HC/Hiệu trưởng duyệt" type="object" name="action_hr_approve"
+                            class="btn-warning"
+                            invisible="status != 'manager_approved'"/>
+                    <button string="Hoàn thành" type="object" name="action_done"
+                            class="btn-success"
+                            invisible="status != 'hr_approved'"/>
+                    <button string="Từ chối" type="object" name="action_refuse"
+                            class="btn-danger"
+                            invisible="status in ('done','refused')"/>
+                    <field name="status" widget="statusbar"
+                           statusbar_visible="draft,to_approve,manager_approved,hr_approved,done,refused"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="leave_type_id"/>
+                        <field name="remaining_days" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="leave_days" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="reason"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
